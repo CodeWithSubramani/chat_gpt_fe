@@ -2,15 +2,13 @@
 import React, { useState } from 'react';
 import { Chat, useGetChats } from '../api/chats/GetChats';
 
-interface SideChatBarProps {
-  chats: string[];
-}
 
-const SideChatBar: React.FC<SideChatBarProps> = ({ chats }) => {
+
+const SideChatBar: React.FC = () => {
 
 
   const { data: chatsData, isLoading: chatsLoading } = useGetChats();
-  const [isSideBarOpen, setSideBarOpen] = useState(false)
+  const [isSideBarOpen, setSideBarOpen] = useState(true)
 
   const handleCollapse = () => {
     setSideBarOpen(!isSideBarOpen)
