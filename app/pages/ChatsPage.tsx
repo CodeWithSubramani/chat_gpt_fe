@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import SideChatBar from "../components/SideChatBar";
-import MessagesPage from "./messages";
+import MessagesPage from "./MessagesPage";
 
 const ChatsPage = () => {
     return (

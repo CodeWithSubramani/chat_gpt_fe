@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const MessagesPage: React.FC = () => {
+const MessagesInputBox: React.FC = () => {
     const [message, setMessage] = useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -8,9 +8,6 @@ const MessagesPage: React.FC = () => {
     };
 
     const handleSubmit = async () => {
-        // Submit the chat message using the API function
-        // await submitChat(message);
-        // Clear the input field after submitting
         setMessage('');
     };
 
@@ -34,4 +31,4 @@ const MessagesPage: React.FC = () => {
 
 }
 
-export default MessagesPage;
+export default MessagesInputBox;

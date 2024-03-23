@@ -2,7 +2,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "./components/Header";
 import SideChatBar from "./components/SideChatBar";
-import ChatsPage from "./pages/chats";
+import ChatsPage from "./pages/ChatsPage";
 
 export default function Home() {
 
