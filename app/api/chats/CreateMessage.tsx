@@ -1,7 +1,6 @@
-import { useMutation, useQueries } from "react-query";
 import { API_URL } from "@/app/constants";
-import { Message } from "./GetMessages";
-import { chat_id } from "./GetMessages";
+import { useMutation, useQueryClient } from "react-query";
+import { Message, chat_id, useGetMessages } from "./GetMessages";
 
 export const createMessage = async (text: string): Promise<Message> => {
     try {
@@ -32,9 +31,12 @@ export const createMessage = async (text: string): Promise<Message> => {
 }
 
 export const useCreateMessage = () => {
+
     const { data, mutate, isLoading } = useMutation(createMessage, {
         onSuccess: async (successData) => {
-            console.log("create message", successData)
+            console.log("create message", successData);
+            await useGetMessages();
+
         }
     });
     return { data, mutate, isLoading }
