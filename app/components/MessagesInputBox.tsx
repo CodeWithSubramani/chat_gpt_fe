@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useCreateMessage } from "../api/chats/CreateMessage";
 
 const MessagesInputBox: React.FC = () => {
     const [message, setMessage] = useState('');
+    const { data: messageData, mutate: mutateCreateChat, isLoading: messageLoading } = useCreateMessage();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);
     };
 
     const handleSubmit = async () => {
-        setMessage('');
+        mutateCreateChat(message)
     };
 
     return (

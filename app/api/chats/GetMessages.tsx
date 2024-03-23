@@ -1,6 +1,7 @@
 
 import { useQuery } from 'react-query';
-import { API_URL } from '../../constants';
+import { API_URL } from "@/app/constants";
+export const chat_id: string = '8f141c6e-2382-4014-82d0-2b858f9a85fd'
 
 export interface Message {
     id: string;
@@ -12,7 +13,7 @@ export interface Message {
 }
 export const getMessages = async (): Promise<Message[]> => {
     try {
-        const chat_id: string = '8f141c6e-2382-4014-82d0-2b858f9a85fd'
+
         const response = await fetch(
             `${API_URL}/messages/chat_id/${chat_id}`,
             {

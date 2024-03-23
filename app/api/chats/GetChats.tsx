@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { API_URL } from '../../constants';
+import { API_URL } from "@/app/constants";
 
 export interface Chat {
     id: string;
