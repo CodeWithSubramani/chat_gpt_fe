@@ -3,7 +3,7 @@ import { useCreateMessage } from "../api/chats/CreateMessage";
 
 const MessagesInputBox: React.FC = () => {
     const [message, setMessage] = useState('');
-    const { data: messageData, mutate: mutateCreateChat, isLoading: messageLoading } = useCreateMessage();
+    const { data: messageData, mutate: mutateCreateChat, isPending: messageLoading } = useCreateMessage();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);

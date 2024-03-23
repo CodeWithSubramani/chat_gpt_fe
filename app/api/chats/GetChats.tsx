@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "@/app/constants";
 
 export interface Chat {
@@ -35,11 +35,10 @@ export const getChats = async (): Promise<Chat[]> => {
 
 
 export const useGetChats = () => {
-    const { data, isLoading } = useQuery('chats', getChats, {
-        onSuccess: async (successData) => {
-            console.log("chats", successData);
-        },
+    const { data, isPending } = useQuery({
+        queryKey: ['chats'],
+        queryFn: getChats
     });
 
-    return { data, isLoading };
+    return { data, isPending };
 };

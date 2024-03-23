@@ -1,5 +1,5 @@
 
-import { useQuery } from 'react-query';
+import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "@/app/constants";
 export const chat_id: string = '8f141c6e-2382-4014-82d0-2b858f9a85fd'
 
@@ -37,10 +37,9 @@ export const getMessages = async (): Promise<Message[]> => {
 }
 
 export const useGetMessages = () => {
-    const { data, isLoading } = useQuery('messages', getMessages, {
-        onSuccess: async (successData) => {
-            console.log("messages", successData)
-        }
+    const { data, isPending } = useQuery({
+        queryKey: ["messages"],
+        queryFn: getMessages
     });
-    return { data, isLoading }
+    return { data, isPending }
 }

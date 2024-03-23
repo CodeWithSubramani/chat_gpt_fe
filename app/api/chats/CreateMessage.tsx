@@ -1,6 +1,6 @@
 import { API_URL } from "@/app/constants";
-import { useMutation, useQueryClient } from "react-query";
-import { Message, chat_id, useGetMessages } from "./GetMessages";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Message, chat_id } from "./GetMessages";
 
 export const createMessage = async (text: string): Promise<Message> => {
     try {
@@ -31,13 +31,13 @@ export const createMessage = async (text: string): Promise<Message> => {
 }
 
 export const useCreateMessage = () => {
-
-    const { data, mutate, isLoading } = useMutation(createMessage, {
+    const queryClient = useQueryClient()
+    const { data, mutate, isPending } = useMutation({
+        mutationFn: createMessage,
         onSuccess: async (successData) => {
             console.log("create message", successData);
-            await useGetMessages();
+        },
 
-        }
     });
-    return { data, mutate, isLoading }
+    return { data, mutate, isPending }
 }

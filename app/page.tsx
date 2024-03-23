@@ -1,5 +1,5 @@
 'use client'
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import Header from "./components/Header";
 import SideChatBar from "./components/SideChatBar";
 import ChatsPage from "./pages/ChatsPage";
