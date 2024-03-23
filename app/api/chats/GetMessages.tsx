@@ -1,19 +1,20 @@
+
 import { useQuery } from 'react-query';
 import { API_URL } from '../../constants';
 
-export interface Chat {
+export interface Message {
     id: string;
-    name: string;
-    description: string;
-    modified_at: string;
+    text: string;
+    chat_id: string;
+    role: string;
     created_at: string;
-    upload_id: string;
+    modified_at: string;
 }
-
-export const getChats = async (): Promise<Chat[]> => {
+export const getMessages = async (): Promise<Message[]> => {
     try {
+        const chat_id: string = '8f141c6e-2382-4014-82d0-2b858f9a85fd'
         const response = await fetch(
-            `${API_URL}/chats`,
+            `${API_URL}/messages/chat_id/${chat_id}`,
             {
                 method: "GET",
                 headers: {
@@ -24,22 +25,21 @@ export const getChats = async (): Promise<Chat[]> => {
         if (!response.ok) {
             throw new Error("Failed to fetch assets");
         }
-        const data: Chat[] = await response.json();
-        console.log(data, "chats");
+        const data: Message[] = await response.json();
+        console.log(data, chat_id, "messages for this chat_id");
         return data;
+
     } catch (error) {
         console.error("Error fetching chats:", error);
         throw error;
     }
-};
+}
 
-
-export const useGetChats = () => {
-    const { data, isLoading } = useQuery('chats', getChats, {
+export const useGetMessages = () => {
+    const { data, isLoading } = useQuery('messages', getMessages, {
         onSuccess: async (successData) => {
-            console.log("chats", successData);
-        },
+            console.log("messages", successData)
+        }
     });
-
-    return { data, isLoading };
-};
+    return { data, isLoading }
+}
