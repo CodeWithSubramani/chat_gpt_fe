@@ -13,7 +13,7 @@ const MessagesCanvas: React.FC = () => {
     }, [messagesData])
     return (
         <>
-            <div className="left-1/3 fixed inset-x-1/4 bottom-20 overflow-y-auto h-5/6">
+            <div className="left-1/4 fixed inset-x-3 pr-20 bottom-20 overflow-y-auto h-5/6">
                 {!messagesDataLoading && <ul>
                     {messagesData?.reverse()?.map((message: Message, index) => (
                         <li key={index} className={message.role === "USER" ? "text-left" : "text-right"}>
