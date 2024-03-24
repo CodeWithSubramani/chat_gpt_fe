@@ -36,6 +36,7 @@ export const useCreateMessage = () => {
         mutationFn: createMessage,
         onSuccess: async (successData) => {
             console.log("create message", successData);
+            queryClient.invalidateQueries()
         },
 
     });
