@@ -32,7 +32,7 @@ const MessagesInputBox: React.FC = () => {
                         onChange={handleChange}
                         placeholder="Type your message..."
                         className="chat-input mr-2 rounded-lg text-center border border-gray-500 p-2"
-                        style={{ width: '33vw' }}
+                        style={{ width: '39vw' }}
                         disabled={messageLoading}
                     />
                     <button type="submit"
