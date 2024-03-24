@@ -36,21 +36,13 @@ const MessagesInputBox: React.FC = () => {
                         disabled={messageLoading}
                     />
                     <button type="submit"
-                        className="submit-button bg-black text-white py-2 px-4 rounded-xl"
-                        disabled={messageLoading}
+                        className={!messageLoading ? "submit-button bg-black text-white py-2 px-4 rounded-xl text-center" : "bg-slate-300 backdrop-blur-0 text-black py-2 px-4 rounded-xl text-center"}
+                        disabled={messageLoading || message.length < 10}
                     >
-                        {messageLoading ? (
-                            <div className="flex items-center justify-center">
-                                <div className="spinner-border animate-spin inline-block w-4 h-4 border-2 rounded-full" role="status">
-                                    <span className="visually-hidden">Loading...</span>
-                                </div>
-                            </div>
-                        ) : (
-                            "Submit"
-                        )}
+                        {messageLoading ? ("Loading...") : ("Submit")}
                     </button>
                 </form>
-            </div>
+            </div >
         </>
     )
 
