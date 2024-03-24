@@ -17,6 +17,8 @@ const SideChatBar: React.FC = () => {
   return (
     <>
       <h2 className="text-xl text-white p-4 fixed left-0 top-0">Chats</h2>
+
+      <h2 className='w-full bottom-0 p-4 pt-10 fixed bg-gray-100'>.</h2>
       {isSideBarOpen ?
         <>
 
@@ -32,7 +34,7 @@ const SideChatBar: React.FC = () => {
                     </li>
                   ))}
                   <button
-                    className='fixed left-0 bottom-0 p-4 bg-gray-100 px-20'
+                    className='fixed left-0 bottom-0 p-4 px-20'
                     onClick={handleCollapse}>{!isSideBarOpen ? "Expand" : "Collapse"}</button>
                 </ul>}
             </div>
@@ -40,7 +42,7 @@ const SideChatBar: React.FC = () => {
         </> :
         <>
           <button
-            className='fixed left-0 bottom-0 p-4 px-20 bg-gray-100'
+            className='fixed left-0 bottom-0 p-4 px-20'
             onClick={handleCollapse}>{!isSideBarOpen ? "Expand" : "Collapse"}
           </button>
         </>
