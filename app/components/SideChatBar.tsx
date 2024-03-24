@@ -21,9 +21,8 @@ const SideChatBar: React.FC = () => {
       <h2 className='w-full bottom-0 p-4 pt-10 fixed bg-gray-100'>.</h2>
       {isSideBarOpen ?
         <>
-
           <div className="h-full overflow-y-auto">
-            <div className="side-chat-bar fixed h-full w-1/5 left-0 top-30 overflow-y-auto">
+            <div className="side-chat-bar fixed h-full w-1/6 left-0 top-30 overflow-y-auto">
               {!chatsLoading &&
                 <ul>
                   {chatsData?.map((chat: Chat, index) => (
@@ -42,7 +41,7 @@ const SideChatBar: React.FC = () => {
         </> :
         <>
           <button
-            className='fixed left-0 bottom-0 p-4 px-20'
+            className='fixed left-0 bottom-0 p-4 px-20 '
             onClick={handleCollapse}>{!isSideBarOpen ? "Expand" : "Collapse"}
           </button>
         </>
