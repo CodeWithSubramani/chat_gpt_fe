@@ -6,7 +6,7 @@ const MessagesInputBox: React.FC = () => {
     const [message, setMessage] = useState('');
     const { data: messageData, mutate: mutateCreateChat, isPending: messageLoading } = useCreateMessage();
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(event.target.value);
     };
 
@@ -24,13 +24,12 @@ const MessagesInputBox: React.FC = () => {
 
     return (
         <>
-            <div className="chat-input-container left-1/3 bottom-0 fixed pb-5 flex p-2">
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
+            <div className="chat-input-container left-1/3 bottom-0 fixed pb-2 flex p-2 ">
+                <form onSubmit={handleSubmit} className="flex">
+                    <textarea
                         value={message}
                         onChange={handleChange}
-                        placeholder="Type your message..."
+                        placeholder="Type your question with a min of 10 chars..."
                         className="chat-input mr-2 rounded-lg text-center border border-gray-500 p-2"
                         style={{ width: '39vw' }}
                         disabled={messageLoading}

@@ -44,9 +44,9 @@ const MessagesCanvas: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className={message.role === "USER" ? "bg-slate-200 rounded-lg p-3" : " rounded-lg pr-10 p-3 bg-blue-100"}>
+                            <textarea className={message.role === "USER" ? "bg-slate-200 rounded-lg p-3 w-full" : " rounded-lg pr-10 p-3 bg-blue-100 w-full"}>
                                 {message.text}
-                            </div>
+                            </textarea>
                             <div className="pl-5 pr-5">
                                 <TimeAgo timestamp={message.created_at} />
                             </div>
